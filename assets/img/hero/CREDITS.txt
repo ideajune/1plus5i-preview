@@ -1,0 +1,4 @@
+히어로 배경 사진 — Unsplash License (https://unsplash.com/license)
+hero-1: 부산 해운대 야경 (Sung Jin Cho) — https://unsplash.com/photos/oY_h_gyVZlU
+hero-2: 강과 다리가 있는 도시의 노을 (Daryan Shamkhali) — https://unsplash.com/photos/vpk8V_O5-Xk
+hero-3: 창밖 도시가 보이는 아침의 방 (Killian Pham) — https://unsplash.com/photos/UXbwE090Vgs
