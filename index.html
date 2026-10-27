@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1+5i (일플러스오아이) — 세종 · 5대 광역시 쉐어하우스 플랫폼 (시안)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1e3a8a',
+                            light: '#2563eb',
+                            dark: '#0f172a',
+                        },
+                        secondary: {
+                            DEFAULT: '#15803d',
+                            light: '#16a34a',
+                        },
+                        accent: '#0284c7',
+                        amberGold: '#f59e0b',
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        point: ['Outfit', 'Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body { font-family: 'Pretendard', -apple-system, sans-serif; }
+        .logo-15i .c1 { color: #2563eb; }
+        .logo-15i .cp { color: #f59e0b; }
+        .logo-15i .c5 { color: #16a34a; }
+        .logo-15i .ci { color: #0284c7; }
+        details summary::-webkit-details-marker { display:none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- ========================================================
+         상단 헤더 (연립방정식 스타일: 4개 심플 메뉴 + 입주신청 CTA)
+         ======================================================== -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- 로고 -->
+                <a href="#hero" class="flex items-center gap-2.5 no-underline">
+                    <span class="logo-15i text-3xl font-extrabold tracking-tight">
+                        <span class="c1">1</span><span class="cp">+</span><span class="c5">5</span><span class="ci">i</span>
+                    </span>
+                    <span class="text-xs font-bold text-gray-400 border-l border-gray-200 pl-2.5 tracking-wider hidden sm:inline">일플러스오아이</span>
+                </a>
+
+                <!-- 데스크톱 네비게이션: 간결한 메뉴 -->
+                <nav class="hidden md:flex items-center gap-1 text-[15px] font-bold text-gray-700">
+                    <a href="#services" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-blue-50/60 transition-colors">서비스 소개</a>
+                    <a href="#pricing" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-blue-50/60 transition-colors">요금 안내</a>
+                    <a href="#locations" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-blue-50/60 transition-colors">서비스 지역</a>
+                    <a href="#reviews" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-blue-50/60 transition-colors">이용 후기</a>
+                    <a href="#faq" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-blue-50/60 transition-colors">자주 묻는 질문</a>
+                    
+                    <span class="w-px h-5 bg-gray-200 mx-2" aria-hidden="true"></span>
+
+                    <a href="#apply" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-[15px] font-bold text-white bg-primary hover:bg-blue-700 transition-all shadow-sm hover:shadow">
+                        입주 신청
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </nav>
+
+                <!-- 모바일 메뉴 버튼 -->
+                <button type="button" id="mobile-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" aria-label="메뉴 열기">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-1 shadow-lg">
+            <a href="#services" class="block py-2.5 px-3 rounded-lg text-base font-bold text-gray-700 hover:bg-gray-50">서비스 소개</a>
+            <a href="#pricing" class="block py-2.5 px-3 rounded-lg text-base font-bold text-gray-700 hover:bg-gray-50">요금 안내</a>
+            <a href="#locations" class="block py-2.5 px-3 rounded-lg text-base font-bold text-gray-700 hover:bg-gray-50">서비스 지역</a>
+            <a href="#reviews" class="block py-2.5 px-3 rounded-lg text-base font-bold text-gray-700 hover:bg-gray-50">이용 후기</a>
+            <a href="#faq" class="block py-2.5 px-3 rounded-lg text-base font-bold text-gray-700 hover:bg-gray-50">자주 묻는 질문</a>
+            <div class="pt-2">
+                <a href="#apply" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-base font-bold text-white bg-primary">
+                    입주 신청하기 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-16 md:pt-20">
+
+        <!-- ========================================================
+             1. HERO (히어로: 든든하고 신뢰감 있는 첫인상)
+             ======================================================== -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden py-24">
+            <!-- 배경 그라데이션 및 비주얼 -->
+            <div class="absolute inset-0 pointer-events-none opacity-40">
+                <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-600/30 blur-3xl"></div>
+                <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-emerald-600/20 blur-3xl"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:24px_24px] opacity-20"></div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <!-- 태그라인 -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-sm font-semibold text-sky-200 mb-8 border border-white/15 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>세종특별자치시 · 대전 · 광주 · 대구 · 울산 · 부산</span>
+                </div>
+
+                <!-- 메인 헤드라인 -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                    살 곳이 필요한 순간,<br>
+                    <span class="logo-15i inline-block mt-2">
+                        <span class="c1">1</span><span class="cp">+</span><span class="c5">5</span><span class="ci">i</span>
+                    </span>가 있습니다
+                </h1>
+
+                <!-- 서브 슬로건 -->
+                <p class="text-lg md:text-2xl text-slate-300 font-light max-w-2xl mx-auto mb-3 leading-relaxed">
+                    주머니 사정은 달라질 수 있어도,
+                </p>
+                <p class="text-lg md:text-2xl text-white font-semibold max-w-2xl mx-auto mb-10">
+                    당신의 내일과 존재 가치는 바뀌지 않습니다.
+                </p>
+
+                <!-- CTA 버튼 -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#apply" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-bold text-white bg-amberGold hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5">
+                        입주 신청하기
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-semibold text-white border border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all">
+                        서비스 알아보기
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </a>
+                </div>
+
+                <!-- 핵심 3대 가치 배지 -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-16 text-left">
+                    <div class="flex items-center gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-sky-300 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-white">보증금 0원</p>
+                            <p class="text-xs text-slate-300">연 이용료 외 추가비용 없음</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="file-check-2" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-white">전입신고 100% 가능</p>
+                            <p class="text-xs text-slate-300">합법 주소지 및 실거주 확보</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="laptop" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-white">100% 비대면 온라인 계약</p>
+                            <p class="text-xs text-slate-300">방문 없이 신청 즉시 완료</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             2. STATS (신뢰 지표: 연립방정식의 간결한 통계)
+             ======================================================== -->
+        <section id="stats" class="py-14 md:py-16 bg-white border-b border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <p class="text-4xl md:text-5xl font-extrabold text-primary">6곳</p>
+                        <p class="text-sm font-semibold text-gray-500 mt-2">세종 · 5대 광역시 거점</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl md:text-5xl font-extrabold text-secondary">0원</p>
+                        <p class="text-sm font-semibold text-gray-500 mt-2">입주 보증금</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl md:text-5xl font-extrabold text-amberGold">∞</p>
+                        <p class="text-sm font-semibold text-gray-500 mt-2">유연한 가능성</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl md:text-5xl font-extrabold text-primary">100%</p>
+                        <p class="text-sm font-semibold text-gray-500 mt-2">온라인 비대면 계약</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             3. BRAND STORY (1+5i의 명쾌한 이름 풀이)
+             ======================================================== -->
+        <section id="meaning" class="py-20 bg-slate-50 border-b border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Brand Identity</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                        하나의 수식, <span class="text-primary">명쾌한 해답</span>
+                    </h2>
+                    <p class="text-gray-600 mt-3 max-w-xl mx-auto text-base">
+                        1+5i는 단순한 쉐어하우스를 넘어 지리적 중심과 유연한 거주 방식을 담은 이름입니다.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 1 -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm text-center">
+                        <span class="text-6xl font-extrabold text-blue-600 font-point block mb-4">1</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">세종특별자치시</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            대한민국 행정의 중심이자 1호점의 시작. 공간을 지키는 <strong>1명의 상주 호스트</strong>가 머뭅니다.
+                        </p>
+                        <span class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full">행정 거점 · 상주자</span>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm text-center">
+                        <span class="text-6xl font-extrabold text-emerald-600 font-point block mb-4">5</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">5대 광역시</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            대전 · 광주 · 대구 · 울산 · 부산. 각자의 생활권에서 필요할 때 접속하는 <strong>5명 이상의 회원</strong>.
+                        </p>
+                        <span class="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full">광역 네트워크</span>
+                    </div>
+
+                    <!-- i -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm text-center">
+                        <span class="text-6xl font-extrabold text-sky-500 font-point block mb-4">i</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">유연한 확장</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            수학의 허수(imaginary)처럼, 지점과 회원 수는 고정되지 않고 고객의 수요에 맞춰 유연하게 확장됩니다.
+                        </p>
+                        <span class="inline-block px-3 py-1 bg-sky-50 text-sky-700 text-xs font-bold rounded-full">무한한 접속권</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             4. SERVICES & PRICING (서비스 및 요금제 2단 심플 비교)
+             ======================================================== -->
+        <section id="services" class="py-20 md:py-28 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-bold uppercase tracking-widest text-amberGold mb-2">Services & Pricing</p>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900">
+                        두 가지 방식, <span class="text-primary">하나의 집</span>
+                    </h2>
+                    <p class="text-gray-500 mt-4 text-base md:text-lg">
+                        보증금 없이 연 1회 결제로 끝. 두 서비스 모두 100% 합법 전입신고가 가능합니다.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="pricing">
+                    
+                    <!-- 비상주 서비스 (인기) -->
+                    <div class="relative bg-white rounded-3xl border-2 border-emerald-500 p-8 md:p-10 shadow-lg hover:shadow-xl transition-all">
+                        <div class="absolute top-5 right-5 px-3 py-1 rounded-full text-xs font-bold text-white bg-emerald-600">인기 플랜</div>
+                        
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-6">
+                            비
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-900">비상주 회원</h3>
+                        <p class="text-sm text-gray-500 mt-1 mb-6">주소지 등록(전입신고) · 우편물 관리 중심</p>
+
+                        <div class="mb-8 pb-6 border-b border-gray-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-xs font-bold text-gray-400">정가 <del>880,000원</del></span>
+                                <span class="px-2 py-0.5 rounded text-[11px] font-bold text-rose-600 bg-rose-50">오픈 특가</span>
+                            </div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl md:text-5xl font-extrabold text-emerald-600">77만 원</span>
+                                <span class="text-gray-500 text-sm">/ 1년 (VAT 포함)</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">월 환산 약 6.4만 원 수준</p>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-gray-700 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                                <span><strong>전입신고(주소지 등록) 100% 가능</strong></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                                <span>사업자 등록 주소지로 사용 가능</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                                <span>우편물 수거 · 스캔본 이메일 발송 (6개월 보관)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                                <span>필요 시 실거주 가능 <strong>(1일 1만 원, 1주일 단위)</strong></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                                <span>보증금 0원 · 중도 추가 부담금 일체 없음</span>
+                            </li>
+                        </ul>
+
+                        <a href="#apply" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all">
+                            비상주 신청하기
+                        </a>
+                    </div>
+
+                    <!-- 상주 서비스 -->
+                    <div class="relative bg-white rounded-3xl border border-gray-200 p-8 md:p-10 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl mb-6">
+                            상
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-900">상주 회원</h3>
+                        <p class="text-sm text-gray-500 mt-1 mb-6">365일 실거주 중심 (지점당 1인 한정)</p>
+
+                        <div class="mb-8 pb-6 border-b border-gray-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-xs font-bold text-gray-400">정가 <del>1,880,000원</del></span>
+                                <span class="px-2 py-0.5 rounded text-[11px] font-bold text-blue-600 bg-blue-50">오픈 특가</span>
+                            </div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl md:text-5xl font-extrabold text-primary">177만 원</span>
+                                <span class="text-gray-500 text-sm">/ 1년 (VAT 포함)</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">월 환산 약 14.7만 원 수준 (관리비 포함)</p>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-gray-700 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
+                                <span><strong>365일 24시간 실거주 가능</strong></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
+                                <span><strong>전입신고 가능</strong> (단독 세대주 등록)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
+                                <span>기본 관리비(수도·전기·가스·인터넷) 포함</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
+                                <span>지점당 1명만 입주하여 쾌적한 주거 보장</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
+                                <span>보증금 0원 (개인 침구/식기 지참)</span>
+                            </li>
+                        </ul>
+
+                        <a href="#apply" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-primary hover:bg-blue-800 shadow-md transition-all">
+                            상주 신청하기
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             5. WHO WE HELP (이런 분께 필요합니다: 4개 핵심 카드)
+             ======================================================== -->
+        <section id="who" class="py-20 bg-slate-50 border-y border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Who We Help</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                        이런 분이라면, <span class="text-primary">1+5i</span>가 해답입니다
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">경제적 주거 위기</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            개인회생, 파산, 신용 문제로 고액 보증금 마련이나 일반 임대차 계약이 어려운 분
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+                            <i data-lucide="heart-crack" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">가정 분리 / 갈등</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            이혼 소송, 가족 갈등, 세대분리 등으로 신속하게 독립된 주소지와 거처가 필요한 분
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
+                            <i data-lucide="plane" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">단기 주거 공백</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            해외 출장, 원양어선, 파견, 공사 등으로 빈집 월세가 아깝지만 주소지는 유지해야 하는 분
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">주민등록 말소 복구</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            거주불명 상태를 해결하고 정상적인 주민등록과 기본권을 회복하고 싶은 분
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             6. LOCATIONS (서비스 지역: 연립방정식 스타일로 전면 단순화!)
+             ★ 첨부 이미지의 복잡한 0/1 게이지와 중복 갤러리를 삭제하고 깔끔한 카드로 단일화
+             ======================================================== -->
+        <section id="locations" class="py-20 md:py-28 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-14">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Locations</p>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900">
+                        세종 · 5대 광역시<br>
+                        <span class="text-primary">서비스 지역</span>
+                    </h2>
+                    <p class="text-gray-500 mt-4 text-base md:text-lg">
+                        원하는 지역을 선택하여 전입신고 및 주거 공간을 이용하세요.
+                    </p>
+                </div>
+
+                <!-- 6개 거점 지점 카드 (연립방정식과 동일한 품격 있고 정갈한 카드) -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 mb-10">
+                    
+                    <!-- 세종점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">세종점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">세종특별자치시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                    <!-- 대전점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">대전점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">대전광역시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                    <!-- 광주점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">광주점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">광주광역시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                    <!-- 대구점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">대구점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">대구광역시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                    <!-- 울산점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">울산점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">울산광역시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                    <!-- 부산점 -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:border-primary hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">부산점</h3>
+                        <p class="text-xs text-gray-500 mt-0.5">부산광역시</p>
+                        <span class="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                            운영중
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- 패밀리 브랜드 및 다른 지역 문의 (점선 테두리 안내 박스) -->
+                <div class="rounded-2xl border-2 border-dashed border-gray-200 bg-slate-50 p-6 md:p-8 text-center">
+                    <p class="font-bold text-gray-900 text-lg mb-1">수도권이나 기타 지역이 필요하신가요?</p>
+                    <p class="text-sm text-gray-500 mb-5">
+                        서울·수도권은 <strong>연립방정식</strong>, 그 외 전국 소도시는 <strong>무한집합</strong>에서 함께 운영 중입니다.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <a href="https://연립방정식.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:text-primary hover:border-primary shadow-sm transition-all">
+                            <span>서울·수도권: 연립방정식</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                        <a href="mailto:sounghochoi@gmail.com" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:text-emerald-700 hover:border-emerald-600 shadow-sm transition-all">
+                            <span>지점 추가 문의하기</span>
+                            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             7. PROCESS (이용 절차 3단계)
+             ======================================================== -->
+        <section id="process" class="py-20 bg-slate-50 border-t border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Process</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                        계약의 모든 과정은 <span class="text-primary">비대면 온라인</span>으로
+                    </h2>
+                    <p class="text-gray-500 mt-2 text-sm md:text-base">직접 방문할 필요 없이 온라인으로 즉시 완료됩니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-primary font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                            01
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">신청서 작성</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            홈페이지 하단 신청서에서 인적사항과 희망 지점, 시작일을 입력합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                            02
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">이용요금 결제</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            안내 계좌로 요금을 입금하면 SMS 자동 확인 시스템이 입금을 매칭합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amberGold font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                            03
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">전입신고 및 입주</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            이메일로 전입 주소와 세대주 정보가 발송되며, 정부24에서 전입신고를 마칩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             8. REVIEWS (이용 후기: 먼저 다녀간 분들의 이야기)
+             ======================================================== -->
+        <section id="reviews" class="py-20 md:py-28 bg-white border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="mb-14">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">이용 후기</p>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+                        먼저 다녀간 분들의 이야기
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- 후기 1: 최O희 -->
+                    <div class="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- 별점 5점 -->
+                            <div class="flex items-center gap-1 text-amber-400 mb-5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            </div>
+                            <blockquote class="text-[15px] text-gray-700 leading-relaxed">
+                                "이혼 소송 중이라 목돈을 쓸 수 없었는데 보증금 없이 연회비만 내고 주소지를 옮길 수 있어서 숨통이 트였어요. 한 달에 열흘 정도 머무는데 하루 만원이면 충분합니다."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-sm flex-shrink-0">
+                                최
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">최O희</p>
+                                <p class="text-xs text-gray-400 font-medium">비상주 회원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 후기 2: 박O다 -->
+                    <div class="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- 별점 5점 -->
+                            <div class="flex items-center gap-1 text-amber-400 mb-5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            </div>
+                            <blockquote class="text-[15px] text-gray-700 leading-relaxed">
+                                "원양어선 타는 동안 빈 원룸 월세 50만원씩 내는 게 늘 아까웠어요. 지금은 휴가 나올 때만 씁니다. 우편물도 스캔해서 보내주셔서 행정 처리에 문제가 없었습니다."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-sm flex-shrink-0">
+                                박
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">박O다</p>
+                                <p class="text-xs text-gray-400 font-medium">비상주 회원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 후기 3: 정O영 -->
+                    <div class="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- 별점 5점 -->
+                            <div class="flex items-center gap-1 text-amber-400 mb-5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            </div>
+                            <blockquote class="text-[15px] text-gray-700 leading-relaxed">
+                                "신용 문제로 임대차 계약을 세 번 거절당하고 여기로 왔습니다. 신청서 쓰고 입금하니까 다음 날 바로 주소랑 전입신고 방법이 메일로 와서 놀랐어요. 조건은 분명하고 숨겨진 비용이 없다는 점이 제일 좋았습니다."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-sm flex-shrink-0">
+                                정
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">정O영</p>
+                                <p class="text-xs text-gray-400 font-medium">상주 회원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 후기 4: 김O수 -->
+                    <div class="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- 별점 5점 -->
+                            <div class="flex items-center gap-1 text-amber-400 mb-5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            </div>
+                            <blockquote class="text-[15px] text-gray-700 leading-relaxed">
+                                "인쇄소 접고 개인회생 들어가면서 아파트를 정리해야 했습니다. 월 15만원이 안 되는 돈으로 전입신고까지 되는 집이 생기니까 다시 계획을 세울 수 있더군요. 사업자 주소지로도 쓰고 있습니다. 낮에는 일 나가고 밤에 돌아와 조용히 다음 일을 준비합니다. 1년 뒤에는 꼭 제 공간으로 옮기겠다고 다짐하면서요."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-sm flex-shrink-0">
+                                김
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">김O수</p>
+                                <p class="text-xs text-gray-400 font-medium">상주 회원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 후기 5: 이O진 -->
+                    <div class="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- 별점 4점 -->
+                            <div class="flex items-center gap-1 text-amber-400 mb-5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                            </div>
+                            <blockquote class="text-[15px] text-gray-700 leading-relaxed">
+                                "해외 파견 1년. 주소지 때문에 고민했는데 깔끔하게 해결됐습니다."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-sm flex-shrink-0">
+                                이
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">이O진</p>
+                                <p class="text-xs text-gray-400 font-medium">비상주 회원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             9. FAQ (자주 묻는 질문: 아코디언)
+             ======================================================== -->
+        <section id="faq" class="py-20 md:py-28 bg-slate-50 border-t border-gray-100">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <p class="text-xs font-bold uppercase tracking-widest text-amberGold mb-2">FAQ</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">자주 묻는 질문</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 font-bold text-gray-900">
+                            <span>신용 문제나 개인회생 중인 사람도 입주 가능한가요?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4 bg-slate-50/50">
+                            네, 전혀 문제없습니다. 1+5i는 보증금이 없고 소득 증빙이나 신용 조회를 하지 않습니다. 어려움에 처한 분들의 재기를 돕는 것이 본 서비스의 핵심 목표입니다.
+                        </div>
+                    </details>
+
+                    <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 font-bold text-gray-900">
+                            <span>보증금이나 중도 추가 관리비가 정말 없나요?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4 bg-slate-50/50">
+                            네, 보증금은 0원입니다. 표기된 연회비(비상주 77만 원, 상주 177만 원) 외에 보증금이나 숨겨진 추가 비용은 없습니다.
+                        </div>
+                    </details>
+
+                    <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 font-bold text-gray-900">
+                            <span>우편물은 어떻게 관리되나요?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4 bg-slate-50/50">
+                            각 지점으로 도착한 우편물은 본사에서 일괄 수거하여 담당자가 스캔 후 고객님의 이메일로 안전하게 발송해 드립니다. 원본은 6개월간 안전 보관 후 분쇄 폐기됩니다.
+                        </div>
+                    </details>
+
+                    <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 font-bold text-gray-900">
+                            <span>건강보험 분리는 어떻게 진행되나요?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4 bg-slate-50/50">
+                            전입신고 완료 후 건강보험공단에 건강보험 세대분리 신청을 제출할 수 있도록 서류와 절차를 상세히 안내해 드립니다.
+                        </div>
+                    </details>
+
+                    <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 font-bold text-gray-900">
+                            <span>주민등록등본을 뗄 때 동거인이 함께 나오나요?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4 bg-slate-50/50">
+                            주민센터 발급 시 또는 정부24 온라인 발급 시 발급 옵션에서 "본인만 표기"를 선택하시면 다른 동거인 없이 본인 단독 정보만 깔끔하게 출력됩니다.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             9. APPLY FORM (원스톱 입주 신청 폼)
+             ======================================================== -->
+        <section id="apply" class="py-20 md:py-28 bg-slate-900 text-white relative">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <p class="text-xs font-bold uppercase tracking-widest text-amberGold mb-2">Application</p>
+                    <h2 class="text-3xl md:text-5xl font-bold">지금 바로 신청하세요</h2>
+                    <p class="text-slate-400 mt-2 text-sm md:text-base">온라인 신청서 접수 즉시 담당자가 확인하여 배정합니다.</p>
+                </div>
+
+                <form class="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-white/15 space-y-6">
+                    <!-- 서비스 유형 선택 -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-200 mb-2">서비스 유형 선택 *</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-4 rounded-xl border border-white/20 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+                                <input type="radio" name="service" value="nonresident" checked class="w-4 h-4 accent-amberGold">
+                                <div>
+                                    <span class="block font-bold text-white text-sm">비상주 서비스</span>
+                                    <span class="block text-xs text-amberGold font-semibold">연 77만 원</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-xl border border-white/20 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+                                <input type="radio" name="service" value="resident" class="w-4 h-4 accent-amberGold">
+                                <div>
+                                    <span class="block font-bold text-white text-sm">상주 서비스</span>
+                                    <span class="block text-xs text-amberGold font-semibold">연 177만 원</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 이름 / 연락처 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">성명 *</label>
+                            <input type="text" placeholder="홍길동" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amberGold">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">연락처 *</label>
+                            <input type="tel" placeholder="010-0000-0000" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amberGold">
+                        </div>
+                    </div>
+
+                    <!-- 이메일 / 비상연락처 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">이메일 *</label>
+                            <input type="email" placeholder="example@email.com" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amberGold">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">비상연락처 *</label>
+                            <input type="tel" placeholder="가족 또는 지인 연락처" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amberGold">
+                        </div>
+                    </div>
+
+                    <!-- 희망 지점 / 시작일 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">희망 지점</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-amberGold">
+                                <option value="무관" selected>지역 무관 (배정 가능 지점)</option>
+                                <option value="세종점">세종점 (세종시)</option>
+                                <option value="대전점">대전점 (대전광역시)</option>
+                                <option value="광주점">광주점 (광주광역시)</option>
+                                <option value="대구점">대구점 (대구광역시)</option>
+                                <option value="울산점">울산점 (울산광역시)</option>
+                                <option value="부산점">부산점 (부산광역시)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200 mb-1">희망 시작일 *</label>
+                            <input type="date" required class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-amberGold" style="color-scheme: dark;">
+                        </div>
+                    </div>
+
+                    <!-- 신분증 업로드 안내 박스 -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-200 mb-1">신분증 파일 첨부 *</label>
+                        <div class="border-2 border-dashed border-white/20 rounded-2xl p-6 text-center hover:border-amberGold transition-colors cursor-pointer bg-white/5">
+                            <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mx-auto mb-2"></i>
+                            <p class="text-sm text-slate-300">신분증(주민등록증/운전면허증) 이미지를 첨부해 주세요</p>
+                            <p class="text-xs text-slate-400 mt-1">JPG, PNG, PDF (최대 10MB) · 안전하게 암호화 보관</p>
+                        </div>
+                    </div>
+
+                    <!-- 약관 동의 -->
+                    <div class="space-y-2 pt-2">
+                        <label class="flex items-center gap-2 cursor-pointer select-none text-sm text-slate-300">
+                            <input type="checkbox" required class="w-4 h-4 accent-amberGold rounded">
+                            <span>연립방정식 및 1+5i 이용약관을 확인하였으며 동의합니다. <strong class="text-amberGold">(필수)</strong></span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer select-none text-sm text-slate-300">
+                            <input type="checkbox" required class="w-4 h-4 accent-amberGold rounded">
+                            <span>개인정보 수집 및 본인 확인 활용에 동의합니다. <strong class="text-amberGold">(필수)</strong></span>
+                        </label>
+                    </div>
+
+                    <!-- 결제 안내 배너 -->
+                    <div class="p-4 rounded-xl bg-amberGold/10 border border-amberGold/30 text-amber-200 text-xs leading-relaxed">
+                        * 신청 완료 후 안내 계좌로 이용요금을 입금해 주시면 자동으로 매칭되어 당일~익일 이메일로 전입신고 주소지가 발송됩니다.
+                    </div>
+
+                    <!-- 제출 버튼 -->
+                    <button type="submit" id="submit-btn" class="w-full py-4 rounded-full font-bold text-lg text-white bg-amberGold hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all">
+                        입주 신청서 제출하기
+                    </button>
+                </form>
+
+                <!-- 팝업 없이 페이지 내에서 바로 뜨는 접수 완료 패널 -->
+                <div id="submit-success-panel" class="hidden bg-white text-slate-900 rounded-3xl p-8 sm:p-10 shadow-2xl border border-gray-100 text-center animate-fade-in">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check-circle" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">입주 신청이 성공적으로 접수되었습니다!</h3>
+                    <p class="text-sm text-slate-600 mb-6">입금 확인 후 영업일 1일 이내에 전입신고 주소 및 세대주 정보가 발송됩니다.</p>
+                    
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-left max-w-lg mx-auto mb-6 space-y-2 text-sm">
+                        <div class="flex justify-between border-b border-gray-200 pb-2">
+                            <span class="text-gray-500">신청 서비스</span>
+                            <span class="font-bold text-emerald-600" id="res-service">비상주 회원 (연 77만 원)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 pb-2">
+                            <span class="text-gray-500">결제 계좌</span>
+                            <span class="font-bold text-slate-900">국민은행 431802-01-396445 (이동근)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 pb-2">
+                            <span class="text-gray-500">결제 기한</span>
+                            <span class="font-bold text-rose-600">24시간 이내 입금 (자동 확인)</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-gray-500">입금자명</span>
+                            <span class="font-bold text-slate-900">신청자 성명과 반드시 동일하게 입금</span>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="location.reload()" class="px-6 py-2.5 rounded-full text-sm font-semibold text-slate-600 border border-slate-300 hover:bg-slate-100 transition-colors">
+                        신청 폼으로 돌아가기
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================
+         푸터
+         ======================================================== -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <span class="logo-15i text-2xl font-bold"><span class="c1">1</span><span class="cp">+</span><span class="c5">5</span><span class="ci">i</span></span>
+                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                        세종특별자치시와 5대 광역시(대전·광주·대구·울산·부산)를 잇는<br>무보증금 연회비형 쉐어하우스 플랫폼
+                    </p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase text-white tracking-wider mb-3">패밀리 브랜드</p>
+                    <ul class="space-y-1.5 text-xs">
+                        <li><a href="https://연립방정식.com" target="_blank" rel="noopener" class="hover:text-white">연립방정식 (서울 · 수도권)</a></li>
+                        <li><a href="https://무한집합.com" target="_blank" rel="noopener" class="hover:text-white">무한집합 (전국 중소도시)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase text-white tracking-wider mb-3">고객 안내</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        운영사: 후크인터스텔라(주) | 대표이사: 최규철<br>
+                        문의 이메일: sounghochoi@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 text-xs text-slate-600 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 1+5i (일플러스오아이). All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#hero" class="hover:text-slate-400">맨 위로</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide icons 렌더링
+        lucide.createIcons();
+
+        // 모바일 메뉴 토글
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => menu.classList.add('hidden'));
+            });
+        }
+
+        // 신청서 폼 제출 (팝업창 없이 즉시 성공 패널로 전환)
+        const applyForm = document.querySelector('#apply form');
+        const successPanel = document.getElementById('submit-success-panel');
+        if (applyForm && successPanel) {
+            applyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const serviceVal = document.querySelector('input[name="service"]:checked')?.value;
+                const resService = document.getElementById('res-service');
+                if (resService) {
+                    resService.textContent = serviceVal === 'resident' 
+                        ? '상주 회원 (연 177만 원)' 
+                        : '비상주 회원 (연 77만 원)';
+                }
+                applyForm.classList.add('hidden');
+                successPanel.classList.remove('hidden');
+                lucide.createIcons();
+                successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+    </script>
+</body>
+</html>
