@@ -30,6 +30,7 @@
                     fontFamily: {
                         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
                         point: ['Outfit', 'Pretendard', 'sans-serif'],
+                        logoko: ['Tenada', 'Pretendard', 'sans-serif'],
                     }
                 }
             }
@@ -39,6 +40,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
+        @font-face {
+            font-family: 'Tenada';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+            font-weight: normal;
+            font-display: swap;
+        }
+        .font-logoko { font-family: 'Tenada', 'Pretendard', sans-serif; }
         body { font-family: 'Pretendard', -apple-system, sans-serif; }
         .logo-15i .c1 { color: #2563eb; }
         .logo-15i .cp { color: #f59e0b; }
@@ -302,123 +310,119 @@
 
 
         <!-- ========================================================
-             4. SERVICES & PRICING (서비스 및 요금제 2단 심플 비교)
+             4. SERVICES & PRICING (제공 서비스 / 가격)
              ======================================================== -->
-        <section id="services" class="py-20 md:py-28 bg-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <p class="text-xs font-bold uppercase tracking-widest text-amberGold mb-2">Services & Pricing</p>
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900">
-                        두 가지 방식, <span class="text-primary">하나의 집</span>
+        <section id="services" class="py-20 md:py-28 bg-[#f5f7fb]">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-blue-600 mb-2">1+5i가 제공하는 특별한 주거 서비스</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                        두 가지 방식, 하나의 집
                     </h2>
-                    <p class="text-gray-500 mt-4 text-base md:text-lg">
-                        보증금 없이 연 1회 결제로 끝. 두 서비스 모두 100% 합법 전입신고가 가능합니다.
+                    <p class="text-gray-500 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+                        보증금 없이 연 1회 결제. 두 서비스 모두 전입신고가 가능합니다.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="pricing">
-                    
-                    <!-- 비상주 서비스 (인기) -->
-                    <div class="relative bg-white rounded-3xl border-2 border-emerald-500 p-8 md:p-10 shadow-lg hover:shadow-xl transition-all">
-                        <div class="absolute top-5 right-5 px-3 py-1 rounded-full text-xs font-bold text-white bg-emerald-600">인기 플랜</div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto" id="pricing">
+
+                    <!-- 비상주 회원 -->
+                    <div class="bg-white rounded-2xl md:rounded-3xl border border-gray-100 border-t-4 border-t-secondary p-8 md:p-10 shadow-[0_1px_2px_rgba(16,24,40,.04),0_8px_24px_-12px_rgba(30,58,138,.18)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-16px_rgba(30,58,138,.35)] transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold text-secondary">비상주 회원</h3>
+                            <span class="px-3 py-1 rounded-full bg-green-50 text-secondary text-xs font-bold">오픈 프로모션</span>
+                        </div>
+                        <p class="text-gray-500 mt-2 text-sm leading-normal">주소지 등록(전입신고)·우편물 관리 중심, 필요할 때 단기 실거주</p>
                         
-                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-6">
-                            비
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-gray-900">비상주 회원</h3>
-                        <p class="text-sm text-gray-500 mt-1 mb-6">주소지 등록(전입신고) · 우편물 관리 중심</p>
-
-                        <div class="mb-8 pb-6 border-b border-gray-100">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-xs font-bold text-gray-400">정가 <del>880,000원</del></span>
-                                <span class="px-2 py-0.5 rounded text-[11px] font-bold text-rose-600 bg-rose-50">오픈 특가</span>
+                        <!-- 가격 영역 (정가 취소선 + 할인 배지) -->
+                        <div class="mt-6">
+                            <div class="flex items-center gap-2.5 flex-wrap">
+                                <span class="text-sm font-semibold text-gray-400">정가</span>
+                                <span class="relative text-2xl font-bold text-gray-400">88만원<span class="absolute left-0 right-0 top-1/2 h-[3px] bg-rose-500/80 -rotate-6" aria-hidden="true"></span></span>
+                                <span class="px-2.5 py-1 rounded-full bg-rose-50 text-rose-600 text-xs font-bold">↓ 11만원 할인</span>
                             </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-4xl md:text-5xl font-extrabold text-emerald-600">77만 원</span>
-                                <span class="text-gray-500 text-sm">/ 1년 (VAT 포함)</span>
+                            <div class="mt-1 flex items-baseline gap-2">
+                                <span class="font-logoko text-5xl md:text-6xl font-extrabold text-secondary leading-none">연 77만원</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-1">월 환산 약 6.4만 원 수준</p>
                         </div>
+                        <p class="text-sm text-gray-500 mt-2">VAT 포함 · 실거주 1일 1만원</p>
 
-                        <ul class="space-y-3.5 text-sm text-gray-700 mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-                                <span><strong>전입신고(주소지 등록) 100% 가능</strong></span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-                                <span>사업자 등록 주소지로 사용 가능</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-                                <span>우편물 수거 · 스캔본 이메일 발송 (6개월 보관)</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-                                <span>필요 시 실거주 가능 <strong>(1일 1만 원, 1주일 단위)</strong></span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-                                <span>보증금 0원 · 중도 추가 부담금 일체 없음</span>
-                            </li>
+                        <!-- 체크리스트 -->
+                        <ul class="mt-6 space-y-2.5 text-[15px] text-gray-700">
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>전입신고(주소지 등록) 가능 · 사업자 주소지 사용 가능</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>우편물 수거·스캔 이메일 발송 · 6개월 보관</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>실거주 시 1만원/일, 1주일 단위 (사전 예약)</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>계약기간 동안 상주 1명과 다른 비상주 회원이 집을 공유</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>개인 짐 보관 가능 (지점별 상이)</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>보증금 없음 · 중도 추가 비용 없음</span></li>
                         </ul>
 
-                        <a href="#apply" data-select-plan="nonresident" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all">
-                            비상주 신청하기
+                        <!-- 신청 버튼 -->
+                        <a href="#apply" data-select-plan="nonresident" data-preset-service="비상주" class="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-secondary hover:bg-emerald-800 transition-all duration-200 shadow-md hover:-translate-y-0.5">
+                            비상주 신청하기 <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                     </div>
 
-                    <!-- 상주 서비스 -->
-                    <div class="relative bg-white rounded-3xl border border-gray-200 p-8 md:p-10 shadow-sm hover:shadow-md transition-all">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl mb-6">
-                            상
+                    <!-- 상주 회원 -->
+                    <div class="bg-white rounded-2xl md:rounded-3xl border border-gray-100 border-t-4 border-t-primary p-8 md:p-10 shadow-[0_1px_2px_rgba(16,24,40,.04),0_8px_24px_-12px_rgba(30,58,138,.18)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-16px_rgba(30,58,138,.35)] transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold text-primary">상주 회원</h3>
+                            <span class="px-3 py-1 rounded-full bg-blue-50 text-primary text-xs font-bold">지점당 1명</span>
                         </div>
-
-                        <h3 class="text-2xl font-bold text-gray-900">상주 회원</h3>
-                        <p class="text-sm text-gray-500 mt-1 mb-6">365일 실거주 중심 (지점당 1인 한정)</p>
-
-                        <div class="mb-8 pb-6 border-b border-gray-100">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-xs font-bold text-gray-400">정가 <del>1,880,000원</del></span>
-                                <span class="px-2 py-0.5 rounded text-[11px] font-bold text-blue-600 bg-blue-50">오픈 특가</span>
+                        <p class="text-gray-500 mt-2 text-sm leading-normal">한 집에서 안정적으로 생활하는 서비스</p>
+                        
+                        <!-- 가격 영역 (정가 취소선 + 할인 배지) -->
+                        <div class="mt-6">
+                            <div class="flex items-center gap-2.5 flex-wrap">
+                                <span class="text-sm font-semibold text-gray-400">정가</span>
+                                <span class="relative text-2xl font-bold text-gray-400">188만원<span class="absolute left-0 right-0 top-1/2 h-[3px] bg-rose-500/80 -rotate-6" aria-hidden="true"></span></span>
+                                <span class="px-2.5 py-1 rounded-full bg-rose-50 text-rose-600 text-xs font-bold">↓ 11만원 할인</span>
                             </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-4xl md:text-5xl font-extrabold text-primary">177만 원</span>
-                                <span class="text-gray-500 text-sm">/ 1년 (VAT 포함)</span>
+                            <div class="mt-1 flex items-baseline gap-2">
+                                <span class="font-logoko text-5xl md:text-6xl font-extrabold text-primary leading-none">연 177만원</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-1">월 환산 약 14.7만 원 수준 (관리비 포함)</p>
                         </div>
+                        <p class="text-sm text-gray-500 mt-2">VAT 포함 · 월 환산 약 14.8만원</p>
 
-                        <ul class="space-y-3.5 text-sm text-gray-700 mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
-                                <span><strong>365일 24시간 실거주 가능</strong></span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
-                                <span><strong>전입신고 가능</strong> (단독 세대주 등록)</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
-                                <span>기본 관리비(수도·전기·가스·인터넷) 포함</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
-                                <span>지점당 1명만 입주하여 쾌적한 주거 보장</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary flex-shrink-0"></i>
-                                <span>보증금 0원 (개인 침구/식기 지참)</span>
-                            </li>
+                        <!-- 체크리스트 -->
+                        <ul class="mt-6 space-y-2.5 text-[15px] text-gray-700">
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>원룸 쉐어하우스에 365일 실거주</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>지점당 1명의 상주자 — 공간의 호스트</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>다른 비상주 회원과 공간 공유 (사전 예약제)</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>전입신고 가능 · 사업자 주소지 사용 가능</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>기본 관리비(수도·전기·가스·인터넷) 포함</span></li>
+                            <li class="flex gap-2.5"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"></i><span>보증금 없음 · 장기간 이용 가능</span></li>
                         </ul>
 
-                        <a href="#apply" data-select-plan="resident" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-primary hover:bg-blue-800 shadow-md transition-all">
-                            상주 신청하기
+                        <!-- 신청 버튼 -->
+                        <a href="#apply" data-select-plan="resident" data-preset-service="상주" class="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-primary hover:bg-[#172554] transition-all duration-200 shadow-md hover:-translate-y-0.5">
+                            상주 신청하기 <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                     </div>
-
                 </div>
+
+                <!-- 비용 비교 -->
+                <div class="max-w-5xl mx-auto mt-8 bg-white rounded-2xl border border-gray-100 p-6 md:p-8 shadow-[0_1px_2px_rgba(16,24,40,.04),0_8px_24px_-12px_rgba(30,58,138,.12)]">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6">
+                        <div class="md:w-1/3">
+                            <p class="text-xs font-bold tracking-widest uppercase text-blue-600">비용 비교</p>
+                            <h3 class="text-xl font-bold mt-1 text-gray-900">한 달에 5일, 타 도시에 머문다면</h3>
+                        </div>
+                        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="rounded-xl bg-gray-50 p-4 border border-gray-100">
+                                <p class="text-sm text-gray-500 font-medium">호텔 · 1박 5만원</p>
+                                <p class="text-2xl font-bold mt-1 text-gray-900">연 300만원</p>
+                                <p class="text-xs text-gray-400 mt-1">60박 × 5만원</p>
+                            </div>
+                            <div class="rounded-xl bg-green-50/80 p-4 border border-green-200/60">
+                                <p class="text-sm text-secondary font-semibold">1+5i 비상주</p>
+                                <p class="text-2xl font-bold text-secondary mt-1">연 137만원</p>
+                                <p class="text-xs text-emerald-800/80 mt-1">연회비 77만원 + 60일 × 1만원</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
