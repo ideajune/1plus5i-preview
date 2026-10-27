@@ -48,6 +48,24 @@
         .hero-overlay-tint { position: absolute; inset: 0; background-color: rgba(23, 37, 84, 0.70); }
         .hero-overlay-glow { position: absolute; inset: 0; background-image: radial-gradient(ellipse at top left, rgba(14, 165, 233, 0.35), transparent 55%), radial-gradient(ellipse at bottom right, rgba(34, 197, 94, 0.22), transparent 50%); }
         .hero-overlay-bottom { position: absolute; inset-x: 0; bottom: 0; height: 10rem; background-image: linear-gradient(to top, rgba(23, 37, 84, 0.85) 0%, transparent 100%); }
+
+        /* 카카오톡 플로팅 버튼 (오리지널 동일 구조) */
+        .kakao-floating-wrapper { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; z-index: 9999; }
+        .kakao-chat-tooltip { background: #fff; color: #0f172a; padding: 0.55rem 2.4rem 0.55rem 0.95rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 12px 24px rgba(15,23,42,.2); border: 1px solid rgba(15,23,42,.08); position: relative; opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .35s ease, transform .35s ease; }
+        .kakao-chat-tooltip:after { content: ""; position: absolute; bottom: -7px; right: 18px; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #fff; filter: drop-shadow(0 4px 4px rgba(15,23,42,.15)); }
+        .kakao-chat-tooltip--visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .kakao-chat-tooltip--dismissed { opacity: 0 !important; transform: translateY(6px) !important; pointer-events: none !important; visibility: hidden; }
+        .kakao-chat-tooltip__text { display: block; white-space: nowrap; }
+        .kakao-chat-tooltip__link { display: block; color: inherit; text-decoration: none; }
+        .kakao-chat-tooltip__close { position: absolute; top: 9px; right: 11px; background: transparent; border: 0; color: #475569; font-size: 1.3rem; cursor: pointer; padding: 0; line-height: 1; }
+        .kakao-floating-btn { position: relative; width: 60px; height: 60px; background: #fee500; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.2); transition: all .3s ease; text-decoration: none; cursor: pointer; }
+        .kakao-floating-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 24px rgba(0,0,0,.3); background: gold; }
+        @media (max-width: 768px) {
+            .kakao-floating-wrapper { bottom: 20px; right: 16px; gap: 0.4rem; }
+            .kakao-chat-tooltip { font-size: 0.78rem; padding: 0.45rem 2.2rem 0.45rem 0.8rem; }
+            .kakao-floating-btn { width: 56px; height: 56px; }
+            .kakao-floating-btn svg { width: 32px; height: 32px; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -341,7 +359,7 @@
                             </li>
                         </ul>
 
-                        <a href="#apply" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all">
+                        <a href="#apply" data-select-plan="nonresident" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all">
                             비상주 신청하기
                         </a>
                     </div>
@@ -390,7 +408,7 @@
                             </li>
                         </ul>
 
-                        <a href="#apply" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-primary hover:bg-blue-800 shadow-md transition-all">
+                        <a href="#apply" data-select-plan="resident" class="w-full block py-3.5 rounded-full text-center font-bold text-white bg-primary hover:bg-blue-800 shadow-md transition-all">
                             상주 신청하기
                         </a>
                     </div>
@@ -1019,9 +1037,54 @@
         </div>
     </footer>
 
+    <!-- 카카오톡 채널 상담 플로팅 버튼 (오리지널 동일 구조) -->
+    <div class="kakao-floating-wrapper" aria-live="polite">
+        <div class="kakao-chat-tooltip" role="status" aria-hidden="true">
+            <a href="http://pf.kakao.com/_xmfImX/chat" target="_blank" rel="noopener noreferrer" class="kakao-chat-tooltip__link">
+                <span class="kakao-chat-tooltip__text">1:1 상담 도와드릴까요?</span>
+            </a>
+            <button type="button" class="kakao-chat-tooltip__close" aria-label="상담 말풍선 닫기">&times;</button>
+        </div>
+        <a href="http://pf.kakao.com/_xmfImX/chat" target="_blank" rel="noopener noreferrer" class="kakao-floating-btn" aria-label="카카오톡 상담하기">
+            <svg viewBox="0 0 24 24" width="34" height="34" fill="#3C1E1E" aria-hidden="true">
+                <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.786 1.834 5.228 4.59 6.63-.178.662-.642 2.403-.735 2.774-.116.46.17.454.357.33.147-.097 2.344-1.584 3.287-2.224.481.068.977.104 1.5.104 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
+            </svg>
+        </a>
+    </div>
+
     <script>
         // Lucide icons 렌더링
         lucide.createIcons();
+
+        // 요금제 신청 버튼 클릭 시 해당 라디오 버튼 자동 선택
+        document.querySelectorAll('[data-select-plan]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const plan = btn.getAttribute('data-select-plan');
+                const radio = document.querySelector(`input[name="service"][value="${plan}"]`);
+                if (radio) {
+                    radio.checked = true;
+                }
+            });
+        });
+
+        // 카카오톡 툴팁 말풍선 표시 및 닫기
+        const kakaoTooltip = document.querySelector('.kakao-chat-tooltip');
+        const kakaoCloseBtn = document.querySelector('.kakao-chat-tooltip__close');
+        if (kakaoTooltip) {
+            setTimeout(() => {
+                kakaoTooltip.classList.add('kakao-chat-tooltip--visible');
+                kakaoTooltip.setAttribute('aria-hidden', 'false');
+            }, 2500);
+            if (kakaoCloseBtn) {
+                kakaoCloseBtn.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    kakaoTooltip.classList.remove('kakao-chat-tooltip--visible');
+                    kakaoTooltip.classList.add('kakao-chat-tooltip--dismissed');
+                    kakaoTooltip.setAttribute('aria-hidden', 'true');
+                });
+            }
+        }
 
         // 모바일 메뉴 토글
         const btn = document.getElementById('mobile-btn');
