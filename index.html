@@ -78,6 +78,55 @@
             .kakao-floating-btn { width: 56px; height: 56px; }
             .kakao-floating-btn svg { width: 32px; height: 32px; }
         }
+
+        /* 이용약관 스크롤 박스 (오리지널 동일) */
+        .terms-box {
+            overflow-y: auto;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-size: 0.75rem;
+            line-height: 1.625;
+            max-height: 220px;
+        }
+        .terms-box p.text-gray-800 {
+            color: #fde68a !important;
+            font-weight: 700;
+            font-size: 0.8125rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.375rem;
+        }
+        .terms-box p.text-gray-800:first-child {
+            margin-top: 0;
+        }
+        .terms-box p.text-gray-600 {
+            color: rgba(255, 255, 255, 0.7) !important;
+            margin-bottom: 0.25rem;
+            line-height: 1.6;
+        }
+        .terms-box p.text-gray-600.mb-3 {
+            margin-bottom: 0.75rem;
+        }
+        .terms-box p.text-primary {
+            color: #fde68a !important;
+            font-weight: 500;
+            margin-top: 0.75rem;
+        }
+        .terms-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        .terms-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+        }
+        .terms-box::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 4px;
+        }
+        .terms-box::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.55);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -1017,6 +1066,99 @@
                         </div>
                     </div>
 
+                    <!-- 이용약관 동의 (오리지널 동일: 비상주 / 상주 선택에 따라 약관 전환) -->
+                    <div id="terms-wrap" class="space-y-3">
+                        <div id="terms-nonresident" class="terms-block">
+                            <p class="text-xs font-semibold text-amber-300 mb-1">1+5i 이용약관 (비상주 서비스)</p>
+                            <div class="terms-box">
+                                <p class="mb-1.5 font-semibold text-gray-800">1. 비상주 서비스 개요</p>
+                                <p class="mb-1 text-gray-600">- 비상주 서비스는 1년(77만원, VAT 포함) 단위로 계약하며 보증금은 없습니다.</p>
+                                <p class="mb-1 text-gray-600">- 세종특별자치시 및 5대 광역시(대전·광주·대구·울산·부산) 지점 중 한 곳을 선택하여 전입신고 하실 수 있습니다.</p>
+                                <p class="mb-3 text-gray-600">- 필요할 때 지점에서 1일당 관리비 1만원을 내고 실거주할 수 있습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">2. 실거주 이용</p>
+                                <p class="mb-1 text-gray-600">- 계약 기간 중 최소 일주일 단위로 관리비를 선 지불하고, 최대 365일 실거주할 수 있습니다.</p>
+                                <p class="mb-1 text-gray-600">- 실거주를 원하실 경우 일주일 전에 본사 공식 상담 채널을 통해 일정을 예약해 주십시오. 상주자와 다른 비상주 회원의 이용 현황에 따라 일정이 조정될 수 있습니다.</p>
+                                <p class="mb-1 text-gray-600">- 실거주 시 세면도구, 취사도구, 이불 등 개인용품은 고객님께서 준비해 오셔야 합니다.</p>
+                                <p class="mb-1 text-gray-600">- 거주지 청결을 유지해야 하며 전기, 가스 등 안전수칙을 철저히 준수해야 합니다.</p>
+                                <p class="mb-3 text-gray-600">- 전입신고한 지점과 다른 지점에서 실거주하는 것도 가능하며, 해당 지점 인원이 초과될 경우 담당자가 이동을 제한할 수 있습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">3. 전입신고와 우편물 관리</p>
+                                <p class="mb-1 text-gray-600">- 전입신고는 고객님께서 직접 주민센터를 방문하시거나 정부24 온라인 서비스를 통해 진행하셔야 합니다. 결제 확인 후 전입하실 주소와 세대주 정보, 신고 방법을 이메일로 안내해 드립니다.</p>
+                                <p class="mb-1 text-gray-600">- 우편물은 각 지점에서 수거하여 본사에 보관하며, 요청 시 담당자가 스캔한 이미지를 이메일로 보내드립니다.</p>
+                                <p class="mb-3 text-gray-600">- 우편물은 6개월 동안 보관하며 이후 안전하게 분쇄 처리하여 폐기됩니다. 실물 수령을 원하실 경우 건당 1만원의 발송비로 택배 발송이 가능합니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">4. 연락처와 정보 변경</p>
+                                <p class="mb-1 text-gray-600">- 담당자와 항상 연락이 가능해야 하며, 휴대폰 번호나 이메일이 변경될 경우 즉시 알려주셔야 합니다.</p>
+                                <p class="mb-3 text-gray-600">- 연락이 닿지 않아 발생하는 불이익은 고객님의 책임이 될 수 있으니 꼭 숙지 부탁드립니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">5. 재계약 및 계약 종료</p>
+                                <p class="mb-1 text-gray-600">- 재계약을 원하실 경우 계약 만료 전에 홈페이지에서 재계약 신청서를 작성하시고 해당 요금을 납부해 주셔야 합니다.</p>
+                                <p class="mb-1 text-gray-600">- 계약 종료를 원하실 경우, 계약 만료 전까지 새로운 주소지로 전입신고를 완료하고 개인 짐을 옮긴 후 주민등록등본 사본을 본사에 제출해 주십시오.</p>
+                                <p class="mb-3 text-gray-600">- 계약 종료일까지 재계약하지 않거나 새로운 주소지로 전입신고를 하지 않을 경우, 주민등록법에 따라 거주불명자로 등록될 수 있으며 체납 기간에 따라 서비스 이용이 제한됩니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">6. 환불 및 서비스 이용 제한</p>
+                                <p class="mb-1 text-gray-600">- 결제 및 계약 완료 후 개인적인 사유(이사, 일정 변경 등)로 인한 계약 해지나 환불은 불가합니다.</p>
+                                <p class="mb-1 text-gray-600">- 불법적인 목적(예: 위장전입, 명의도용 등)으로 서비스를 이용하거나 약관을 위반할 경우 계약이 해지되며 환불은 불가합니다.</p>
+                                <p class="mb-1 text-gray-600">- 허위 정보 제공이나 연락 두절 시에도 서비스 이용이 제한될 수 있으니 주의 부탁드립니다.</p>
+                                <p class="mb-3 text-gray-600">- 가정폭력·스토킹 등 긴급한 신변 위협 상황에서는 1+5i보다 전문 보호시설 및 긴급지원기관(여성긴급전화 1366 등)의 도움을 먼저 받으시길 안내드립니다. 1+5i는 24시간 보안이나 전문 상담 서비스를 제공하지 않습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">7. 공동 이용 규칙</p>
+                                <p class="mb-1 text-gray-600">- 1+5i 지점은 상주자 1명과 여러 비상주 회원이 함께 사용하는 공간입니다. 다른 이용자의 사생활을 존중하고, 예약 일정과 청결 규칙을 준수해 주십시오.</p>
+                                <p class="mb-3 text-gray-600">- 실내흡연, 음주가무, 소란행위, 외부인 동거·숙박, 불법행위는 절대 금지되며 적발 시 즉시 계약이 해지됩니다.</p>
+
+                                <p class="text-primary font-medium">후크인터스텔라(주)가 제공하는 1+5i 비상주 서비스를 이용해 주셔서 진심으로 감사드립니다.</p>
+                            </div>
+                        </div>
+
+                        <div id="terms-resident" class="terms-block hidden">
+                            <p class="text-xs font-semibold text-amber-300 mb-1">1+5i 이용약관 (상주 서비스)</p>
+                            <div class="terms-box">
+                                <p class="mb-1.5 font-semibold text-gray-800">1. 상주 서비스 개요</p>
+                                <p class="mb-1 text-gray-600">- 상주 서비스는 1년(177만원, VAT 포함) 단위로 계약하며 보증금은 없습니다.</p>
+                                <p class="mb-1 text-gray-600">- 세종특별자치시 및 5대 광역시(대전·광주·대구·울산·부산) 지점 중 한 곳을 선택하여 전입하고 실거주하실 수 있습니다.</p>
+                                <p class="mb-3 text-gray-600">- 상주자는 지점당 1명이며, 신청 순서와 신원 확인·간단한 상담을 거쳐 최종 배정됩니다. 희망 지점이 마감된 경우 다른 지점을 안내드릴 수 있습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">2. 실거주 이용과 상주자의 역할</p>
+                                <p class="mb-1 text-gray-600">- 실거주 시 세면도구, 취사도구, 이불 등 개인용품은 고객님께서 준비해 오셔야 합니다.</p>
+                                <p class="mb-1 text-gray-600">- 거주지 청결을 유지해야 하며 전기, 가스 등 안전수칙을 철저히 준수해야 합니다.</p>
+                                <p class="mb-1 text-gray-600">- 상주자는 공간의 기본 관리자 역할을 겸합니다. 비상주 회원이 사전 예약 후 방문·숙박할 수 있으며, 상주자는 이에 협조하고 시설 이상 시 본사에 알려주셔야 합니다.</p>
+                                <p class="mb-3 text-gray-600">- 전입신고한 지점과 다른 지점으로 이동하여 실거주하길 원하실 경우 일주일 전에 본사 공식 상담 채널을 통해 담당자와 상의해 주십시오. 거주 인원이 초과될 경우 이동이 제한될 수 있습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">3. 전입신고와 우편물 관리</p>
+                                <p class="mb-1 text-gray-600">- 전입신고는 고객님께서 직접 주민센터를 방문하시거나 정부24 온라인 서비스를 통해 진행하셔야 합니다. 결제 확인 후 전입하실 주소와 세대주 정보, 신고 방법을 이메일로 안내해 드립니다.</p>
+                                <p class="mb-1 text-gray-600">- 우편물은 각 지점에서 수거하여 본사에 보관하며, 요청 시 담당자가 스캔한 이미지를 이메일로 보내드립니다.</p>
+                                <p class="mb-3 text-gray-600">- 우편물은 6개월 동안 보관하며 이후 안전하게 분쇄 처리하여 폐기됩니다. 실물 수령을 원하실 경우 건당 1만원의 발송비로 택배 발송이 가능합니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">4. 연락처와 정보 변경</p>
+                                <p class="mb-1 text-gray-600">- 담당자와 항상 연락이 가능해야 하며, 휴대폰 번호나 이메일이 변경될 경우 즉시 알려주셔야 합니다.</p>
+                                <p class="mb-3 text-gray-600">- 연락이 닿지 않아 발생하는 불이익은 고객님의 책임이 될 수 있으니 꼭 숙지 부탁드립니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">5. 재계약 및 계약 종료</p>
+                                <p class="mb-1 text-gray-600">- 재계약을 원하실 경우 계약 만료 전에 홈페이지에서 재계약 신청서를 작성하시고 해당 요금을 납부해 주셔야 합니다.</p>
+                                <p class="mb-1 text-gray-600">- 계약 종료를 원하실 경우, 계약 만료 전까지 새로운 주소지로 전입신고를 완료하고 개인 짐을 옮긴 후 주민등록등본 사본을 본사에 제출해 주십시오.</p>
+                                <p class="mb-3 text-gray-600">- 계약 종료일까지 재계약하지 않거나 새로운 주소지로 전입신고를 하지 않을 경우, 주민등록법에 따라 거주불명자로 등록될 수 있으며 체납 기간에 따라 서비스 이용이 제한됩니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">6. 환불 및 서비스 이용 제한</p>
+                                <p class="mb-1 text-gray-600">- 결제 및 계약 완료 후 개인적인 사유(이사, 일정 변경 등)로 인한 계약 해지나 환불은 불가합니다.</p>
+                                <p class="mb-1 text-gray-600">- 불법적인 목적(예: 위장전입, 명의도용 등)으로 서비스를 이용하거나 약관을 위반할 경우 계약이 해지되며 환불은 불가합니다.</p>
+                                <p class="mb-1 text-gray-600">- 허위 정보 제공이나 연락 두절 시에도 서비스 이용이 제한될 수 있으니 주의 부탁드립니다.</p>
+                                <p class="mb-3 text-gray-600">- 가정폭력·스토킹 등 긴급한 신변 위협 상황에서는 1+5i보다 전문 보호시설 및 긴급지원기관(여성긴급전화 1366 등)의 도움을 먼저 받으시길 안내드립니다. 1+5i는 24시간 보안이나 전문 상담 서비스를 제공하지 않습니다.</p>
+
+                                <p class="mb-1.5 font-semibold text-gray-800">7. 공동 이용 규칙</p>
+                                <p class="mb-1 text-gray-600">- 1+5i 지점은 상주자 1명과 여러 비상주 회원이 함께 사용하는 공간입니다. 다른 이용자의 사생활을 존중하고, 예약 일정과 청결 규칙을 준수해 주십시오.</p>
+                                <p class="mb-3 text-gray-600">- 실내흡연, 음주가무, 소란행위, 외부인 동거·숙박, 불법행위는 절대 금지되며 적발 시 즉시 계약이 해지됩니다.</p>
+
+                                <p class="text-primary font-medium">후크인터스텔라(주)가 제공하는 1+5i 상주 서비스를 이용해 주셔서 진심으로 감사드립니다.</p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center gap-3 cursor-pointer select-none">
+                            <input type="checkbox" id="agree-terms" name="agree" required value="1" class="w-4 h-4 accent-amber-400 flex-shrink-0">
+                            <span class="text-sm text-white/85">위 이용약관을 모두 읽었으며 동의합니다. <span class="text-amber-300 font-semibold">(필수)</span></span>
+                        </label>
+                    </div>
+
                     <!-- 개인정보 수집·이용 동의 -->
                     <div>
                         <details class="rounded-xl border border-white/20 bg-white/5 p-4 text-xs text-white/70">
@@ -1045,7 +1187,7 @@
                         </details>
                         <label class="flex items-center gap-3 cursor-pointer select-none mt-3">
                             <input type="checkbox" id="agree-privacy" name="agree_privacy" required value="1" class="w-4 h-4 accent-amber-400 flex-shrink-0">
-                            <span class="text-sm text-white/85">개인정보 수집·이용에 동의합니다. <span class="text-amber-300">(필수)</span></span>
+                            <span class="text-sm text-white/85">개인정보 수집·이용에 동의합니다. <span class="text-amber-300 font-semibold">(필수)</span></span>
                         </label>
                     </div>
 
@@ -1055,7 +1197,7 @@
                     </div>
 
                     <!-- 제출 버튼 -->
-                    <button type="submit" id="submit-btn" class="w-full py-4 rounded-full font-bold text-lg text-white bg-amberGold hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all">
+                    <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl font-bold text-lg text-white bg-amberGold hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all">
                         입주 신청서 제출하기
                     </button>
                 </form>
@@ -1204,13 +1346,37 @@
         // Lucide icons 렌더링
         lucide.createIcons();
 
-        // 요금제 신청 버튼 클릭 시 해당 라디오 버튼 자동 선택
+        // 서비스 유형(비상주 / 상주) 변경 시 이용약관 블록 자동 전환
+        function updateTerms(serviceType) {
+            const termsNonres = document.getElementById('terms-nonresident');
+            const termsRes = document.getElementById('terms-resident');
+            const agreeTerms = document.getElementById('agree-terms');
+            if (agreeTerms) agreeTerms.checked = false;
+
+            if (serviceType === 'resident') {
+                if (termsNonres) termsNonres.classList.add('hidden');
+                if (termsRes) termsRes.classList.remove('hidden');
+            } else {
+                if (termsRes) termsRes.classList.add('hidden');
+                if (termsNonres) termsNonres.classList.remove('hidden');
+            }
+        }
+
+        // 라디오 버튼 변경 감지
+        document.querySelectorAll('input[name="service"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                updateTerms(e.target.value);
+            });
+        });
+
+        // 요금제 신청 버튼 클릭 시 해당 라디오 버튼 자동 선택 및 약관 전환
         document.querySelectorAll('[data-select-plan]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const plan = btn.getAttribute('data-select-plan');
                 const radio = document.querySelector(`input[name="service"][value="${plan}"]`);
                 if (radio) {
                     radio.checked = true;
+                    updateTerms(plan);
                 }
             });
         });
